@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct LoadingView: View {
+    @EnvironmentObject private var router: AppRouter
+    
     @Binding var progress: Double
     @State private var timer: Timer?
     
@@ -21,8 +23,8 @@ struct LoadingView: View {
                         ZStack {
                             RoundedRectangle(cornerRadius: 15)
                                 .fill(.white)
+                                .frame(height: 50)
                                 .shadow(color: .black.opacity(0.08), radius: 6, y: 2)
-                                .cornerRadius(15)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 15)
                                         .stroke(LinearGradient(colors: [.red, .yellow], startPoint: .top, endPoint: .bottom), lineWidth: 3)
@@ -31,10 +33,12 @@ struct LoadingView: View {
                             
                             GeometryReader { geo in
                                 let width = geo.size.width * progress
-                                RoundedRectangle(cornerRadius: 15)                                    .fill(LinearGradient(colors: [.red, .yellow],
+                                Rectangle()
+                                    .fill(LinearGradient(colors: [.red, .yellow],
                                                          startPoint: .leading, endPoint: .trailing))
                                     .frame(width: width, height: 50)
                                     .animation(.spring(response: 0.5, dampingFraction: 0.85), value: progress)
+                                    .cornerRadius(15)
                             }
                             .frame(height: 50)
                             
@@ -53,6 +57,7 @@ struct LoadingView: View {
                 if progress >= 1.0 {
                     progress = 1.0
                     t.invalidate()
+                    router.route = .main
                 }
             }
         }

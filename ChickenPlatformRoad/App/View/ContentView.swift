@@ -9,25 +9,57 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var progress: Double = 0.0
-    @State private var showMain = false
+    @StateObject private var router = AppRouter()
 
     var body: some View {
         ZStack {
-            if showMain {
+            switch router.route {
+            case .loading:
+                LoadingView(progress: $progress)
+                    .transition(.opacity)
+                    .id(AppRoute.loading)
+            case .main:
                 MainView()
                     .transition(.opacity)
-            } else {
-                LoadingView(progress: $progress)
+                    .id(AppRoute.main)
+            case .info:
+                InfoView()
+                    .transition(.opacity)
+                    .id(AppRoute.info)
+            case .menu:
+                InfoView()
+                    .transition(.opacity)
+                    .id(AppRoute.menu)
+            case .profile:
+                InfoView()
+                    .transition(.opacity)
+                    .id(AppRoute.profile)
+            case .settings:
+                InfoView()
+                    .transition(.opacity)
+                    .id(AppRoute.settings)
+            case .levels:
+                InfoView()
+                    .transition(.opacity)
+                    .id(AppRoute.levels)
+            case .leaderboard:
+                InfoView()
+                    .transition(.opacity)
+                    .id(AppRoute.leaderboard)
+            case .shop:
+                InfoView()
+                    .transition(.opacity)
+                    .id(AppRoute.shop)
+            case .game:
+                InfoView()
+                    .transition(.opacity)
+                    .id(AppRoute.game)
             }
+            
+
         }
-        .animation(.easeInOut(duration: 0.8), value: showMain)
-        .onChange(of: progress) { newValue in
-            if newValue >= 1.0 {
-                withAnimation {
-                    showMain = true
-                }
-            }
-        }
+        .animation(.easeInOut(duration: 0.8), value: router.route)
+        .environmentObject(router)
     }
 }
 

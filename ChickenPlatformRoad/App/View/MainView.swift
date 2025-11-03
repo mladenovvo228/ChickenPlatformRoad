@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject private var router: AppRouter
+    
     @State private var showAllMenu = false
     @State private var showInfo = false
     
@@ -27,7 +29,7 @@ struct MainView: View {
                 HStack {
                     Button("") {
                         withAnimation {
-                            showInfo = true
+                            router.route = .info
                         }
                         
                     }
@@ -37,7 +39,7 @@ struct MainView: View {
                     
                     Button("") {
                         withAnimation {
-                            showAllMenu = true
+                            router.route = .menu
                         }
                     }
                     .buttonStyle(SubButtonStyle(imageName: "menu"))
