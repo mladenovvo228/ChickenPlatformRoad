@@ -23,7 +23,7 @@ struct MenuView: View {
                         router.route = .main
                     }
                     .buttonStyle(SubButtonStyle(imageName: "back"))
-                    
+
                     Spacer()
                     
                     CoinLabel(coins: 2)
@@ -34,7 +34,7 @@ struct MenuView: View {
                 Spacer()
                 VStack {
                     Text("MENU")
-                        .customFont(size: 40)
+                        .customFont(size: 35)
                         .padding()
                     ForEach(MenuButtonLabel.allCases, id: \.self) { item in
                         Button(item.rawValue) {

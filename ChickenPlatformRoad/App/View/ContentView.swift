@@ -31,7 +31,7 @@ struct ContentView: View {
                     .transition(.opacity)
                     .id(AppRoute.menu)
             case .profile:
-                InfoView()
+                ProfileView()
                     .transition(.opacity)
                     .id(AppRoute.profile)
             case .settings:
