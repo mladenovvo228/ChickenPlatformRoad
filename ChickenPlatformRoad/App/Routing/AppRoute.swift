@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AppRoute: Equatable {
+enum AppRoute: Equatable, Hashable {
     case loading
     case main
     case info

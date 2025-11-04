@@ -1,5 +1,5 @@
 //
-//  InfoView.swift
+//  MenuView.swift
 //  ChickenPlatformRoad
 //
 //  Created by Dakota on 03/11/25.
@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct InfoView: View {
+struct MenuView: View {
     @EnvironmentObject private var router: AppRouter
+    
     var body: some View {
         ZStack {
             Image("bg_loading")
@@ -25,22 +26,24 @@ struct InfoView: View {
                     
                     Spacer()
                     
-                    
+                    CoinLabel(coins: 2)
                 }
                 .padding(.horizontal, 20)
                 .padding(.bottom, screenHeight * 0.07)
-               
                 
+                Spacer()
                 VStack {
-                    Text("How to play")
-                        .customFont(size: 30)
+                    Text("MENU")
+                        .customFont(size: 40)
                         .padding()
-                    ScrollView {
-                        Text("How to play")
-                            .customFont(size: 30)
-                            .padding()
+                    ForEach(MenuButtonLabel.allCases, id: \.self) { item in
+                        Button(item.rawValue) {
+                            item.perform(router: router)
+                        }
+                        .buttonStyle(MainButtonStyle(isBig: false))
                     }
                 }
+                .padding(30)
                 .frame(maxWidth: .infinity)
                 .background(
                     RoundedRectangle(cornerRadius: 10)
@@ -52,12 +55,11 @@ struct InfoView: View {
                         .opacity(0.8)
                 )
                 .padding(.horizontal, 20)
-                
             }
         }
     }
 }
 
 #Preview {
-    InfoView()
+    MenuView()
 }

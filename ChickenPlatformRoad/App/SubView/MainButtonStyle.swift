@@ -8,12 +8,12 @@ struct MainButtonStyle: ButtonStyle {
             Image("big_button")
                 .resizable()
                 .scaledToFit()
-                .frame(width: isBig ? screenWidth * 0.66 : screenWidth * 0.5)
+                .frame(width: isBig ? screenWidth * 0.66 : screenWidth * 0.45)
                 
                 
             
             configuration.label
-                .customFont(size: isBig ? screenHeight * 0.065 : screenHeight * 0.058)
+                .customFont(size: isBig ? screenHeight * 0.065 : screenHeight * 0.018)
                 .multilineTextAlignment(.center)
                 .minimumScaleFactor(0.5)
         }

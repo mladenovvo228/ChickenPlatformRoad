@@ -21,6 +21,9 @@
 		1D88E5DD2EB8F08700814D71 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E5DC2EB8F08700814D71 /* InfoView.swift */; };
 		1D88E5DF2EB8FBB900814D71 /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E5DE2EB8FBB900814D71 /* AppRoute.swift */; };
 		1D88E5E22EB9007A00814D71 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E5E12EB9007A00814D71 /* AppRouter.swift */; };
+		1D88E5E42EB9090E00814D71 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E5E32EB9090E00814D71 /* MenuView.swift */; };
+		1D88E5E62EB90A4500814D71 /* CoinLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E5E52EB90A4500814D71 /* CoinLabel.swift */; };
+		1D88E5E82EB913E500814D71 /* MenuButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E5E72EB913E500814D71 /* MenuButtonLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,9 @@
 		1D88E5DC2EB8F08700814D71 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		1D88E5DE2EB8FBB900814D71 /* AppRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoute.swift; sourceTree = "<group>"; };
 		1D88E5E12EB9007A00814D71 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		1D88E5E32EB9090E00814D71 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		1D88E5E52EB90A4500814D71 /* CoinLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinLabel.swift; sourceTree = "<group>"; };
+		1D88E5E72EB913E500814D71 /* MenuButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,7 @@
 				1D88E5C42EB8BDF900814D71 /* LoadingView.swift */,
 				1D88E5C72EB8C6AC00814D71 /* MainView.swift */,
 				1D88E5DC2EB8F08700814D71 /* InfoView.swift */,
+				1D88E5E32EB9090E00814D71 /* MenuView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -129,6 +136,7 @@
 		1D88E5C32EB8BCA800814D71 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1D88E5E72EB913E500814D71 /* MenuButtonLabel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,6 +172,7 @@
 			children = (
 				1D88E5D62EB8D44E00814D71 /* MainButtonStyle.swift */,
 				1D88E5DA2EB8D88D00814D71 /* SubButtonStyle.swift */,
+				1D88E5E52EB90A4500814D71 /* CoinLabel.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -252,12 +261,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D88E5BB2EB8BC8C00814D71 /* ChickenPlatformRoadApp.swift in Sources */,
+				1D88E5E42EB9090E00814D71 /* MenuView.swift in Sources */,
 				1D88E5DF2EB8FBB900814D71 /* AppRoute.swift in Sources */,
 				1D88E5D72EB8D44E00814D71 /* MainButtonStyle.swift in Sources */,
 				1D88E5C82EB8C6AC00814D71 /* MainView.swift in Sources */,
 				1D88E5D02EB8CA7E00814D71 /* Extension+View.swift in Sources */,
 				1D88E5D92EB8D5FF00814D71 /* Constants.swift in Sources */,
 				1D88E5BC2EB8BC8C00814D71 /* ContentView.swift in Sources */,
+				1D88E5E62EB90A4500814D71 /* CoinLabel.swift in Sources */,
+				1D88E5E82EB913E500814D71 /* MenuButtonLabel.swift in Sources */,
 				1D88E5E22EB9007A00814D71 /* AppRouter.swift in Sources */,
 				1D88E5DB2EB8D88D00814D71 /* SubButtonStyle.swift in Sources */,
 				1D88E5DD2EB8F08700814D71 /* InfoView.swift in Sources */,

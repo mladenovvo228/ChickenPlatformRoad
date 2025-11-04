@@ -27,7 +27,7 @@ struct ContentView: View {
                     .transition(.opacity)
                     .id(AppRoute.info)
             case .menu:
-                InfoView()
+                MenuView()
                     .transition(.opacity)
                     .id(AppRoute.menu)
             case .profile:
@@ -50,10 +50,12 @@ struct ContentView: View {
                 InfoView()
                     .transition(.opacity)
                     .id(AppRoute.shop)
-            case .game:
+            
+                
+            case .game(level: let level):
                 InfoView()
                     .transition(.opacity)
-                    .id(AppRoute.game)
+                    .id(AppRoute.game(level: level))
             }
             
 
