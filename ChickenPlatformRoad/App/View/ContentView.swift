@@ -35,7 +35,7 @@ struct ContentView: View {
                     .transition(.opacity)
                     .id(AppRoute.profile)
             case .settings:
-                InfoView()
+                SettingsView()
                     .transition(.opacity)
                     .id(AppRoute.settings)
             case .levels:

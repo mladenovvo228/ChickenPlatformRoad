@@ -19,5 +19,10 @@ struct SubButtonStyle: ButtonStyle {
         }
         .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
         .animation(.easeOut(duration: 0.15), value: configuration.isPressed)
+        .simultaneousGesture(
+            TapGesture().onEnded {
+                VibrationManager.vibration()
+            }
+        )
     }
 }
