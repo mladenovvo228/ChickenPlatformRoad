@@ -9,6 +9,9 @@ import SwiftUI
 
 struct LevelsView: View {
     @EnvironmentObject private var router: AppRouter
+    @AppStorage("highestUnlockedLevel") private var highestUnlockedLevel: Int = 1
+    
+    private let totalLevels = 9
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -41,16 +44,23 @@ struct LevelsView: View {
                 
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(1..<10) { index in
+                        let unlocked = index <= highestUnlockedLevel
+                        
                         Button("\(index)") {
                             router.route = .game(level: index)
                         }
                         .buttonStyle(SubButtonStyle(imageName: "small_button"))
+                                        .disabled(!unlocked)                 // блокуємо тап
+                                        .saturation(unlocked ? 1 : 0)       // «сірим» для закритих
                     }
                 }
                 
                 Spacer()
                 
             }
+        }
+        .onAppear {
+            UserDefaults.standard.set(true, forKey: "level_1")
         }
     }
 }

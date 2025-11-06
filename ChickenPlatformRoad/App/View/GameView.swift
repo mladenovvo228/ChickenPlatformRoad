@@ -37,6 +37,9 @@ struct GameView: View {
                     
                     Spacer()
                     
+                    CoinLabel(coins: 2)
+                        .scaleEffect(0.8)
+                    
                     HStack {
                         Text("\(vm.score)/\(vm.toScore)")
                             .customFont(size: 35, color: .white)
@@ -115,7 +118,7 @@ struct GameView: View {
                 .background(Color.black.ignoresSafeArea().opacity(0.65))
             }
             
-            if !vm.completed {
+            if vm.completed {
                 VStack(spacing: 30) {
                     Spacer()
                     

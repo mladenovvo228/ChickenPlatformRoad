@@ -8,10 +8,6 @@
 import SwiftUI
 
 class GameViewModel: ObservableObject, GameSceneProtocol {
-    func selectedEgg() -> String {
-        return UserDefaults.standard.string(forKey: "selectedEgg") ?? "egg1"
-    }
-    
     @Published var score = 0 {
         didSet {
             if score == toScore {
@@ -49,8 +45,9 @@ class GameViewModel: ObservableObject, GameSceneProtocol {
         }
     }
     
-    func didCompleteLevel() {
+    func didCompleteLevel(_ level: Int) {
         completed = true
+        UserDefaults.standard.set(level + 1, forKey: "highestUnlockedLevel")
     }
     
     func didFailLevel() {
@@ -68,5 +65,9 @@ class GameViewModel: ObservableObject, GameSceneProtocol {
         score = 0
         scene.level = level
         scene.resetGame()
+    }
+    
+    func selectedEgg() -> String {
+        return UserDefaults.standard.string(forKey: "selectedEgg") ?? "egg1"
     }
 }
