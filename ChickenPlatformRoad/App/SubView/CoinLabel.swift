@@ -18,7 +18,7 @@ struct CoinLabel: View {
                     RoundedRectangle(cornerRadius: 15)
                         .stroke(Color.red, lineWidth: 3)
                 )
-                .frame(width: screenWidth * 0.25, height: screenHeight * 0.04)
+                .frame(width: screenWidth * 0.27, height: screenHeight * 0.04)
 
             
             Image("coin")
@@ -29,7 +29,7 @@ struct CoinLabel: View {
         }
         .overlay(
             Text("\(coins)")
-                .customFont(size: screenHeight * 0.025)
+                .customFont(size: screenHeight * 0.02)
                 .padding(.trailing, screenWidth * 0.15)
         )
     }
@@ -37,5 +37,5 @@ struct CoinLabel: View {
 
 
 #Preview {
-    CoinLabel(coins: 2)
+    CoinLabel(coins: 1000)
 }

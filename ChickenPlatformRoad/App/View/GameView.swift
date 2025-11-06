@@ -11,6 +11,7 @@ import SpriteKit
 struct GameView: View {
     @EnvironmentObject private var router: AppRouter
     @StateObject private var vm: GameViewModel
+    @EnvironmentObject private var shopVM: ShopViewModel
     
     init(level: Int) {
         _vm = StateObject(wrappedValue: GameViewModel(level: level))
@@ -37,7 +38,7 @@ struct GameView: View {
                     
                     Spacer()
                     
-                    CoinLabel(coins: 2)
+                    CoinLabel(coins: shopVM.totalCoins)
                         .scaleEffect(0.8)
                     
                     HStack {

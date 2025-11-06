@@ -2,7 +2,7 @@ import SpriteKit
 import SwiftUI
 
 class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
-    weak var gameProtocol: GameSceneProtocol?
+    var gameProtocol: GameSceneProtocol!
     
     var level: Int
     private var score = 0
@@ -48,7 +48,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
     }
     
     func createEgg() {
-        eggNode = SKSpriteNode(imageNamed: gameProtocol!.selectedEgg())
+        eggNode = SKSpriteNode(imageNamed: gameProtocol.selectedEgg())
         eggNode.setScale(0.3)
         eggNode.name = "sphere"
         eggNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
@@ -132,7 +132,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
                 score += 1
                 DispatchQueue.main.async { [weak self] in
                     guard let self else { return }
-                    self.gameProtocol?.didUpdateScore(self.score)
+                    self.gameProtocol.didUpdateScore(self.score)
                 }
             }
         }
@@ -140,7 +140,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
         if mask == (Categories.eggCategory | Categories.finishCategory) {
             isPaused = true
             DispatchQueue.main.async { [weak self] in
-                self?.gameProtocol?.didCompleteLevel(self!.level)
+                self?.gameProtocol.didCompleteLevel(self!.level)
             }
         }
     }
@@ -149,13 +149,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
         if eggNode.parent != nil && eggNode.position.y < -50 && !isPaused {
             isPaused = true
             DispatchQueue.main.async { [weak self] in
-                self?.gameProtocol?.didFailLevel()
+                self?.gameProtocol.didFailLevel()
             }
         }
     }
     
     func createFinish() {
-        var mainLabel = SKLabelNode()
+        let mainLabel = SKLabelNode()
         let label = SKLabelNode(text: "Reach to")
         let label2 = SKLabelNode(text: "the top")
         label.fontName = "RubikMonoOne-Regular"
@@ -229,7 +229,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
         score = 0
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
-            self.gameProtocol?.didUpdateScore(0)
+            self.gameProtocol.didUpdateScore(0)
         }
         
         removeAllActions()
@@ -252,7 +252,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
 
 struct Categories {
     static let eggCategory: UInt32 = 0x1 << 0
-    static let coinCategory: UInt32 = 0x1 << 1
-    static let platformCategory: UInt32 = 0x1 << 2
-    static let finishCategory: UInt32 = 0x1 << 3
+    static let scoreEggCategory: UInt32 = 0x1 << 1
+    static let coinCategory: UInt32 = 0x1 << 2
+    static let platformCategory: UInt32 = 0x1 << 3
+    static let finishCategory: UInt32 = 0x1 << 4
 }

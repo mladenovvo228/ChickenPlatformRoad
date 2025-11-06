@@ -27,6 +27,7 @@ class GameViewModel: ObservableObject, GameSceneProtocol {
     
     var level: Int
     let scene: GameScene
+    private let shopVM = ShopViewModel.shared
     
     init(level: Int = 1) {
         self.level = level
@@ -38,6 +39,7 @@ class GameViewModel: ObservableObject, GameSceneProtocol {
     
     func didUpdateScore(_ score: Int) {
         self.score = score
+        shopVM.totalCoins += 1
         if score >= toScore, !scene.finish {
             scene.finish = true
             scene.createFinish()
@@ -68,6 +70,6 @@ class GameViewModel: ObservableObject, GameSceneProtocol {
     }
     
     func selectedEgg() -> String {
-        return UserDefaults.standard.string(forKey: "selectedEgg") ?? "egg1"
+        return UserDefaults.standard.string(forKey: "selected_skin") ?? "egg1"
     }
 }

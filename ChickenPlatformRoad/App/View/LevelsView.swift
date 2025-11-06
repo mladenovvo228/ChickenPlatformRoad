@@ -10,7 +10,7 @@ import SwiftUI
 struct LevelsView: View {
     @EnvironmentObject private var router: AppRouter
     @AppStorage("highestUnlockedLevel") private var highestUnlockedLevel: Int = 1
-    
+    @EnvironmentObject private var shopVM: ShopViewModel
     private let totalLevels = 9
     let columns = [
         GridItem(.flexible()),
@@ -33,7 +33,7 @@ struct LevelsView: View {
                     
                     Spacer()
                     
-                    CoinLabel(coins: 2)
+                    CoinLabel(coins: shopVM.totalCoins)
                 }
                 .padding(.horizontal, 20)
                 

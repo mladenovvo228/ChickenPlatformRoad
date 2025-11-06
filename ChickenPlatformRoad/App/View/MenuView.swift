@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MenuView: View {
     @EnvironmentObject private var router: AppRouter
-    
+    @EnvironmentObject private var shopVM: ShopViewModel
     var body: some View {
         ZStack {
             Image("bg_loading")
@@ -26,7 +26,7 @@ struct MenuView: View {
 
                     Spacer()
                     
-                    CoinLabel(coins: 2)
+                    CoinLabel(coins: shopVM.totalCoins)
                 }
                 .padding(.horizontal, 20)
                 .padding(.bottom, screenHeight * 0.07)

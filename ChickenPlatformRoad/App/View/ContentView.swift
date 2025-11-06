@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var progress: Double = 0.0
     @StateObject private var router = AppRouter()
+    @StateObject private var shopVM = ShopViewModel.shared
 
     var body: some View {
         ZStack {
@@ -47,7 +48,7 @@ struct ContentView: View {
                     .transition(.opacity)
                     .id(AppRoute.leaderboard)
             case .shop:
-                InfoView()
+                ShopView()
                     .transition(.opacity)
                     .id(AppRoute.shop)
             case .game(level: let level):
@@ -60,6 +61,7 @@ struct ContentView: View {
         }
         .animation(.easeInOut(duration: 0.8), value: router.route)
         .environmentObject(router)
+        .environmentObject(shopVM)
     }
 }
 
