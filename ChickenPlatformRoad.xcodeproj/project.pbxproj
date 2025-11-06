@@ -31,6 +31,12 @@
 		1D88E5F22EBA64A800814D71 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E5F12EBA64A800814D71 /* SettingsView.swift */; };
 		1D88E5F42EBA64B700814D71 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E5F32EBA64B700814D71 /* SettingsViewModel.swift */; };
 		1D88E5F62EBB73AA00814D71 /* VibrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E5F52EBB73AA00814D71 /* VibrationManager.swift */; };
+		1D88E5F82EBB9D8600814D71 /* LevelsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E5F72EBB9D8600814D71 /* LevelsView.swift */; };
+		1D88E5FA2EBBA0BE00814D71 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E5F92EBBA0BE00814D71 /* GameView.swift */; };
+		1D88E5FC2EBBA0C500814D71 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E5FB2EBBA0C500814D71 /* GameScene.swift */; };
+		1D88E6002EBCB5BE00814D71 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E5FF2EBCB5BE00814D71 /* GameViewModel.swift */; };
+		1D88E6022EBCDFFE00814D71 /* GameSceneProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E6012EBCDFFE00814D71 /* GameSceneProtocol.swift */; };
+		1D88E6042EBCE9AB00814D71 /* GameMenuButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E6032EBCE9AB00814D71 /* GameMenuButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +65,12 @@
 		1D88E5F12EBA64A800814D71 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1D88E5F32EBA64B700814D71 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		1D88E5F52EBB73AA00814D71 /* VibrationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VibrationManager.swift; sourceTree = "<group>"; };
+		1D88E5F72EBB9D8600814D71 /* LevelsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsView.swift; sourceTree = "<group>"; };
+		1D88E5F92EBBA0BE00814D71 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		1D88E5FB2EBBA0C500814D71 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		1D88E5FF2EBCB5BE00814D71 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		1D88E6012EBCDFFE00814D71 /* GameSceneProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneProtocol.swift; sourceTree = "<group>"; };
+		1D88E6032EBCE9AB00814D71 /* GameMenuButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMenuButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +136,8 @@
 		1D88E5C02EB8BC9400814D71 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				1D88E5FB2EBBA0C500814D71 /* GameScene.swift */,
+				1D88E6012EBCDFFE00814D71 /* GameSceneProtocol.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -139,6 +153,8 @@
 				1D88E5E92EBA3E8200814D71 /* ProfileView.swift */,
 				1D88E5EF2EBA63A400814D71 /* AvatarPickerView.swift */,
 				1D88E5F12EBA64A800814D71 /* SettingsView.swift */,
+				1D88E5F72EBB9D8600814D71 /* LevelsView.swift */,
+				1D88E5F92EBBA0BE00814D71 /* GameView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -148,6 +164,7 @@
 			children = (
 				1D88E5EB2EBA3EC300814D71 /* ProfileViewModel.swift */,
 				1D88E5F32EBA64B700814D71 /* SettingsViewModel.swift */,
+				1D88E5FF2EBCB5BE00814D71 /* GameViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -194,6 +211,7 @@
 				1D88E5D62EB8D44E00814D71 /* MainButtonStyle.swift */,
 				1D88E5DA2EB8D88D00814D71 /* SubButtonStyle.swift */,
 				1D88E5E52EB90A4500814D71 /* CoinLabel.swift */,
+				1D88E6032EBCE9AB00814D71 /* GameMenuButtonStyle.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -286,6 +304,7 @@
 				1D88E5DF2EB8FBB900814D71 /* AppRoute.swift in Sources */,
 				1D88E5EE2EBA421B00814D71 /* Avatar.swift in Sources */,
 				1D88E5D72EB8D44E00814D71 /* MainButtonStyle.swift in Sources */,
+				1D88E6002EBCB5BE00814D71 /* GameViewModel.swift in Sources */,
 				1D88E5C82EB8C6AC00814D71 /* MainView.swift in Sources */,
 				1D88E5F62EBB73AA00814D71 /* VibrationManager.swift in Sources */,
 				1D88E5D02EB8CA7E00814D71 /* Extension+View.swift in Sources */,
@@ -293,15 +312,20 @@
 				1D88E5EA2EBA3E8200814D71 /* ProfileView.swift in Sources */,
 				1D88E5BC2EB8BC8C00814D71 /* ContentView.swift in Sources */,
 				1D88E5E62EB90A4500814D71 /* CoinLabel.swift in Sources */,
+				1D88E5FA2EBBA0BE00814D71 /* GameView.swift in Sources */,
 				1D88E5F02EBA63A400814D71 /* AvatarPickerView.swift in Sources */,
 				1D88E5E82EB913E500814D71 /* MenuButtonLabel.swift in Sources */,
 				1D88E5E22EB9007A00814D71 /* AppRouter.swift in Sources */,
 				1D88E5DB2EB8D88D00814D71 /* SubButtonStyle.swift in Sources */,
+				1D88E6042EBCE9AB00814D71 /* GameMenuButtonStyle.swift in Sources */,
 				1D88E5F42EBA64B700814D71 /* SettingsViewModel.swift in Sources */,
+				1D88E5FC2EBBA0C500814D71 /* GameScene.swift in Sources */,
 				1D88E5DD2EB8F08700814D71 /* InfoView.swift in Sources */,
 				1D88E5EC2EBA3EC300814D71 /* ProfileViewModel.swift in Sources */,
+				1D88E6022EBCDFFE00814D71 /* GameSceneProtocol.swift in Sources */,
 				1D88E5C52EB8BDF900814D71 /* LoadingView.swift in Sources */,
 				1D88E5F22EBA64A800814D71 /* SettingsView.swift in Sources */,
+				1D88E5F82EBB9D8600814D71 /* LevelsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

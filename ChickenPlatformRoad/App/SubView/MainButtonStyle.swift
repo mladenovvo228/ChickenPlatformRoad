@@ -2,6 +2,7 @@ import SwiftUI
 
 struct MainButtonStyle: ButtonStyle {
     var isBig: Bool
+    var isSmallerFont: Bool = false
     
     func makeBody(configuration: Configuration) -> some View {
         ZStack {
@@ -10,10 +11,8 @@ struct MainButtonStyle: ButtonStyle {
                 .scaledToFit()
                 .frame(width: isBig ? screenWidth * 0.66 : screenWidth * 0.45)
             
-            
-            
             configuration.label
-                .customFont(size: isBig ? screenHeight * 0.065 : screenHeight * 0.018)
+                .customFont(size: isBig ? (isSmallerFont ? screenHeight * 0.045 : screenHeight * 0.065) : screenHeight * 0.018)
                 .multilineTextAlignment(.center)
                 .minimumScaleFactor(0.5)
         }

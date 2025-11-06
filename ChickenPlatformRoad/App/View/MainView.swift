@@ -70,9 +70,11 @@ struct MainView: View {
                 
                 Spacer()
                 
-                Button("Play") { }
-                    .buttonStyle(MainButtonStyle(isBig: true))
-                    .padding(.bottom, screenHeight * 0.053)
+                Button("Play") {
+                    router.route = .levels
+                }
+                .buttonStyle(MainButtonStyle(isBig: true))
+                .padding(.bottom, screenHeight * 0.053)
             }
         }
     }

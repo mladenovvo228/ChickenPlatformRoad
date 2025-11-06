@@ -8,5 +8,7 @@
 import SwiftUI
 
 class AppRouter: ObservableObject {
-    @Published var route: AppRoute = .loading
+    @Published var route: AppRoute = .main
+    
+     
 }

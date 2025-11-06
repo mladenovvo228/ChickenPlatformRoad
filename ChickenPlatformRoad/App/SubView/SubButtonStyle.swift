@@ -15,7 +15,12 @@ struct SubButtonStyle: ButtonStyle {
             Image(imageName)
                 .resizable()
                 .scaledToFit()
-                .frame(width: screenWidth * 0.2)
+                .frame(width: imageName != "small_button" ? screenWidth * 0.2 : screenWidth * 0.25)
+            
+            configuration.label
+                .customFont(size: screenHeight * 0.038)
+                .multilineTextAlignment(.center)
+                .minimumScaleFactor(0.5)
         }
         .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
         .animation(.easeOut(duration: 0.15), value: configuration.isPressed)
