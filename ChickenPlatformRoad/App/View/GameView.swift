@@ -38,7 +38,7 @@ struct GameView: View {
                     
                     Spacer()
                     
-                    CoinLabel(coins: shopVM.totalCoins)
+                    CoinLabel(coins: 100)
                         .scaleEffect(0.8)
                     
                     HStack {

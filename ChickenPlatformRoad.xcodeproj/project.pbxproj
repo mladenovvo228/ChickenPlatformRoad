@@ -41,6 +41,7 @@
 		1D88E6082EBCF91D00814D71 /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E6072EBCF91D00814D71 /* ShopViewModel.swift */; };
 		1D88E60A2EBD1B2900814D71 /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E6092EBD1B2900814D71 /* Skin.swift */; };
 		1D88E60C2EBD1E2D00814D71 /* SkinCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E60B2EBD1E2D00814D71 /* SkinCard.swift */; };
+		1D88E60E2EBD208F00814D71 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E60D2EBD208F00814D71 /* Categories.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		1D88E6072EBCF91D00814D71 /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
 		1D88E6092EBD1B2900814D71 /* Skin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
 		1D88E60B2EBD1E2D00814D71 /* SkinCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinCard.swift; sourceTree = "<group>"; };
+		1D88E60D2EBD208F00814D71 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			children = (
 				1D88E5FB2EBBA0C500814D71 /* GameScene.swift */,
 				1D88E6012EBCDFFE00814D71 /* GameSceneProtocol.swift */,
+				1D88E60D2EBD208F00814D71 /* Categories.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				1D88E5BC2EB8BC8C00814D71 /* ContentView.swift in Sources */,
 				1D88E60A2EBD1B2900814D71 /* Skin.swift in Sources */,
 				1D88E5E62EB90A4500814D71 /* CoinLabel.swift in Sources */,
+				1D88E60E2EBD208F00814D71 /* Categories.swift in Sources */,
 				1D88E5FA2EBBA0BE00814D71 /* GameView.swift in Sources */,
 				1D88E5F02EBA63A400814D71 /* AvatarPickerView.swift in Sources */,
 				1D88E5E82EB913E500814D71 /* MenuButtonLabel.swift in Sources */,

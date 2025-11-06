@@ -54,7 +54,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
         eggNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
         eggNode.physicsBody = SKPhysicsBody(circleOfRadius: 25)
         eggNode.physicsBody?.categoryBitMask = Categories.eggCategory
-        eggNode.physicsBody?.contactTestBitMask = Categories.coinCategory | Categories.finishCategory
+        eggNode.physicsBody?.contactTestBitMask = Categories.coinCategory | Categories.finishCategory | Categories.scoreEggCategory
         eggNode.physicsBody?.collisionBitMask = Categories.platformCategory
         eggNode.physicsBody?.affectedByGravity = true
         eggNode.physicsBody?.allowsRotation = false
@@ -81,7 +81,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
         
         let scaledPlatformSize = platform.calculateAccumulatedFrame().size
         let platformWidth = scaledPlatformSize.width
-        
         let xPosition = CGFloat.random(in: platformWidth / 2...(size.width - platformWidth / 2))
         platform.position = CGPoint(x: xPosition, y: size.height)
         
@@ -90,25 +89,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
         platform.physicsBody?.categoryBitMask = Categories.platformCategory
         platform.physicsBody?.collisionBitMask = Categories.eggCategory
         
-        let coin = SKSpriteNode(imageNamed: "coin")
-        coin.setScale(0.6)
-        coin.position = CGPoint(x: 0, y: platform.position.y - (platform.position.y / 2))
-        coin.zPosition = 1
-        coin.name = "star"
-        coin.physicsBody = SKPhysicsBody(circleOfRadius: coin.size.width / 2)
-        coin.physicsBody?.isDynamic = false
-        coin.physicsBody?.categoryBitMask = Categories.coinCategory
+        let randomChance = Int.random(in: 1...100)
         
-        if !finish {
-            platform.addChild(coin)
+        if randomChance < 30 {
+            let coin = SKSpriteNode(imageNamed: "coin")
+            coin.setScale(0.6)
+            coin.position = CGPoint(x: 0, y: platform.position.y - (platform.position.y / 2))
+            coin.zPosition = 1
+            coin.name = "coin"
+            coin.physicsBody = SKPhysicsBody(circleOfRadius: coin.size.width / 2)
+            coin.physicsBody?.isDynamic = false
+            coin.physicsBody?.categoryBitMask = Categories.coinCategory
+            if !finish { platform.addChild(coin) }
+        } else {
+            let scoreEgg = SKSpriteNode(imageNamed: "egg_score")
+            scoreEgg.setScale(2.6)
+            scoreEgg.position = CGPoint(x: 0, y: platform.position.y - (platform.position.y / 2))
+            scoreEgg.zPosition = 1
+            scoreEgg.name = "scoreEgg"
+            scoreEgg.physicsBody = SKPhysicsBody(circleOfRadius: scoreEgg.size.width / 2)
+            scoreEgg.physicsBody?.isDynamic = false
+            scoreEgg.physicsBody?.categoryBitMask = Categories.scoreEggCategory
+            if !finish { platform.addChild(scoreEgg) }
         }
+        
         addChild(platform)
         
         let moveDown = SKAction.moveBy(x: 0, y: -size.height, duration: 10.0)
         let remove = SKAction.removeFromParent()
         platform.run(SKAction.sequence([moveDown, remove]))
     }
-    
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
@@ -129,10 +139,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
             if let eggNode = (contact.bodyA.categoryBitMask == Categories.coinCategory
                                ? contact.bodyA.node : contact.bodyB.node) {
                 eggNode.removeFromParent()
-                score += 1
                 DispatchQueue.main.async { [weak self] in
                     guard let self else { return }
-                    self.gameProtocol.didUpdateScore(self.score)
+                    self.gameProtocol.addCoin()
                 }
             }
         }
@@ -143,6 +152,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
                 self?.gameProtocol.didCompleteLevel(self!.level)
             }
         }
+        
+        if mask == (Categories.eggCategory | Categories.scoreEggCategory) {
+            if let egg = (contact.bodyA.categoryBitMask == Categories.scoreEggCategory ? contact.bodyA.node : contact.bodyB.node) {
+                egg.removeFromParent()
+                score += 1
+                DispatchQueue.main.async { [weak self] in
+                    guard let self else { return }
+                    self.gameProtocol.didUpdateScore(self.score)
+                }
+            }
+        }
+
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -248,12 +269,4 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
     }
     
     
-}
-
-struct Categories {
-    static let eggCategory: UInt32 = 0x1 << 0
-    static let scoreEggCategory: UInt32 = 0x1 << 1
-    static let coinCategory: UInt32 = 0x1 << 2
-    static let platformCategory: UInt32 = 0x1 << 3
-    static let finishCategory: UInt32 = 0x1 << 4
 }

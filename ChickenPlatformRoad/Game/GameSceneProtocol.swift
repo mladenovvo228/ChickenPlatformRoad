@@ -12,4 +12,5 @@ protocol GameSceneProtocol: AnyObject {
     func didCompleteLevel(_ level: Int)
     func didFailLevel()
     func selectedEgg() -> String
+    func addCoin()
 }

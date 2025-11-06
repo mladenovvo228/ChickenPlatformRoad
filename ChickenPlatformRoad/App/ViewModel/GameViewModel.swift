@@ -39,12 +39,15 @@ class GameViewModel: ObservableObject, GameSceneProtocol {
     
     func didUpdateScore(_ score: Int) {
         self.score = score
-        shopVM.totalCoins += 1
         if score >= toScore, !scene.finish {
             scene.finish = true
             scene.createFinish()
             scene.platform.enumerateChildNodes(withName: "star") { node, _ in node.removeFromParent() }
         }
+    }
+    
+    func addCoin() {
+        shopVM.totalCoins += 1
     }
     
     func didCompleteLevel(_ level: Int) {

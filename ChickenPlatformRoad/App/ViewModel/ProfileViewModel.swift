@@ -14,6 +14,8 @@ class ProfileViewModel: ObservableObject {
     let avatars = Avatar.allCases
     private let nameKey = "nameKey"
     private let avatarKey = "avatarKey"
+    private let levelsKey = "highestUnlockedLevel"
+    
     private let storage = UserDefaults.standard
     
     init() {
@@ -36,11 +38,13 @@ class ProfileViewModel: ObservableObject {
     
     var hasChanges: Bool {
         let savedName = storage.string(forKey: nameKey) ?? "Guest"
-        let savedAvatar = storage.string(forKey: avatarKey) ?? Avatar.chick1.rawValue
-        return savedName != name || savedAvatar != selectedAvatar.rawValue
+        return savedName != name
     }
     
     func save() {
+        if hasChanges {
+            storage.set(1, forKey: levelsKey)
+        }
         let trimmed = name.trimmingCharacters(in: .whitespacesAndNewlines)
         storage.set(trimmed.isEmpty ? "Guest" : trimmed, forKey: nameKey)
         storage.set(selectedAvatar.rawValue, forKey: avatarKey)
