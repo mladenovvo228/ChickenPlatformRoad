@@ -31,7 +31,7 @@ struct ShopView: View {
                 .padding(.bottom, 8)
 
                 Text("SHOP")
-                    .customFont(size: 30)
+                    .customFont(size: titleFontSize)
                     .padding(.bottom, 8)
 
                 TabView {

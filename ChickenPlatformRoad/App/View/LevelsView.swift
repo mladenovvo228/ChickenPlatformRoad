@@ -39,7 +39,7 @@ struct LevelsView: View {
                 
                 
                 Text("Change level")
-                    .customFont(size: 30)
+                    .customFont(size: titleFontSize)
                     .padding(.bottom, screenHeight * 0.07)
                 
                 LazyVGrid(columns: columns, spacing: 20) {

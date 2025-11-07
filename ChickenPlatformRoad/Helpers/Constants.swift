@@ -10,3 +10,5 @@ import SwiftUI
 let screenWidth: CGFloat = UIScreen.main.bounds.width
 
 let screenHeight: CGFloat = UIScreen.main.bounds.height
+
+let titleFontSize = screenHeight * 0.032

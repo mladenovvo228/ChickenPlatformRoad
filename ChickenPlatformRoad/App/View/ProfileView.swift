@@ -36,7 +36,7 @@ struct ProfileView: View {
                 
                 VStack(spacing: 40) {
                     Text("PROFILE")
-                        .customFont(size: 30)
+                        .customFont(size: titleFontSize)
                         .padding()
                     
                     Button(action: {

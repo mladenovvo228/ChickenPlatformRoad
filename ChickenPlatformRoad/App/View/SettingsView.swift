@@ -35,7 +35,7 @@ struct SettingsView: View {
                 
                 VStack(spacing: 40) {
                     Text("Settings")
-                        .customFont(size: 30)
+                        .customFont(size: titleFontSize)
                         .padding(.horizontal)
                     
                     VStack(spacing: 20) {

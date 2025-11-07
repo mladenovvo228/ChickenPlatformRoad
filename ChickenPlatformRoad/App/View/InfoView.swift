@@ -33,7 +33,7 @@ struct InfoView: View {
                 
                 VStack {
                     Text("How to play")
-                        .customFont(size: 30)
+                        .customFont(size: titleFontSize)
                         .padding()
                     ScrollView {
                         VStack {
