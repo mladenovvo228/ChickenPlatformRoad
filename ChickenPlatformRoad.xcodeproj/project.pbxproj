@@ -42,6 +42,11 @@
 		1D88E60A2EBD1B2900814D71 /* Skin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E6092EBD1B2900814D71 /* Skin.swift */; };
 		1D88E60C2EBD1E2D00814D71 /* SkinCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E60B2EBD1E2D00814D71 /* SkinCard.swift */; };
 		1D88E60E2EBD208F00814D71 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E60D2EBD208F00814D71 /* Categories.swift */; };
+		1D88E6102EBD2B8200814D71 /* LeaderboardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E60F2EBD2B8200814D71 /* LeaderboardsView.swift */; };
+		1D88E6122EBDF84000814D71 /* LeaderboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E6112EBDF84000814D71 /* LeaderboardModel.swift */; };
+		1D88E6142EBDF85C00814D71 /* LeaderboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E6132EBDF85C00814D71 /* LeaderboardManager.swift */; };
+		1D88E6162EBDF88400814D71 /* LeaderboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E6152EBDF88400814D71 /* LeaderboardViewModel.swift */; };
+		1D88E6182EBE03B000814D71 /* LeaderboardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D88E6172EBE03B000814D71 /* LeaderboardRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +86,11 @@
 		1D88E6092EBD1B2900814D71 /* Skin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
 		1D88E60B2EBD1E2D00814D71 /* SkinCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinCard.swift; sourceTree = "<group>"; };
 		1D88E60D2EBD208F00814D71 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		1D88E60F2EBD2B8200814D71 /* LeaderboardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardsView.swift; sourceTree = "<group>"; };
+		1D88E6112EBDF84000814D71 /* LeaderboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardModel.swift; sourceTree = "<group>"; };
+		1D88E6132EBDF85C00814D71 /* LeaderboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardManager.swift; sourceTree = "<group>"; };
+		1D88E6152EBDF88400814D71 /* LeaderboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewModel.swift; sourceTree = "<group>"; };
+		1D88E6172EBE03B000814D71 /* LeaderboardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +177,7 @@
 				1D88E5F72EBB9D8600814D71 /* LevelsView.swift */,
 				1D88E5F92EBBA0BE00814D71 /* GameView.swift */,
 				1D88E6052EBCF90E00814D71 /* ShopView.swift */,
+				1D88E60F2EBD2B8200814D71 /* LeaderboardsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,6 +189,7 @@
 				1D88E5F32EBA64B700814D71 /* SettingsViewModel.swift */,
 				1D88E5FF2EBCB5BE00814D71 /* GameViewModel.swift */,
 				1D88E6072EBCF91D00814D71 /* ShopViewModel.swift */,
+				1D88E6152EBDF88400814D71 /* LeaderboardViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -188,6 +200,7 @@
 				1D88E5E72EB913E500814D71 /* MenuButtonLabel.swift */,
 				1D88E5ED2EBA421B00814D71 /* Avatar.swift */,
 				1D88E6092EBD1B2900814D71 /* Skin.swift */,
+				1D88E6112EBDF84000814D71 /* LeaderboardModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -215,6 +228,7 @@
 				1D88E5CF2EB8CA7E00814D71 /* Extension+View.swift */,
 				1D88E5D82EB8D5FF00814D71 /* Constants.swift */,
 				1D88E5F52EBB73AA00814D71 /* VibrationManager.swift */,
+				1D88E6132EBDF85C00814D71 /* LeaderboardManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -227,6 +241,7 @@
 				1D88E5E52EB90A4500814D71 /* CoinLabel.swift */,
 				1D88E6032EBCE9AB00814D71 /* GameMenuButtonStyle.swift */,
 				1D88E60B2EBD1E2D00814D71 /* SkinCard.swift */,
+				1D88E6172EBE03B000814D71 /* LeaderboardRow.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -325,15 +340,18 @@
 				1D88E6002EBCB5BE00814D71 /* GameViewModel.swift in Sources */,
 				1D88E5C82EB8C6AC00814D71 /* MainView.swift in Sources */,
 				1D88E5F62EBB73AA00814D71 /* VibrationManager.swift in Sources */,
+				1D88E6142EBDF85C00814D71 /* LeaderboardManager.swift in Sources */,
 				1D88E5D02EB8CA7E00814D71 /* Extension+View.swift in Sources */,
 				1D88E5D92EB8D5FF00814D71 /* Constants.swift in Sources */,
 				1D88E5EA2EBA3E8200814D71 /* ProfileView.swift in Sources */,
 				1D88E5BC2EB8BC8C00814D71 /* ContentView.swift in Sources */,
+				1D88E6122EBDF84000814D71 /* LeaderboardModel.swift in Sources */,
 				1D88E60A2EBD1B2900814D71 /* Skin.swift in Sources */,
 				1D88E5E62EB90A4500814D71 /* CoinLabel.swift in Sources */,
 				1D88E60E2EBD208F00814D71 /* Categories.swift in Sources */,
 				1D88E5FA2EBBA0BE00814D71 /* GameView.swift in Sources */,
 				1D88E5F02EBA63A400814D71 /* AvatarPickerView.swift in Sources */,
+				1D88E6162EBDF88400814D71 /* LeaderboardViewModel.swift in Sources */,
 				1D88E5E82EB913E500814D71 /* MenuButtonLabel.swift in Sources */,
 				1D88E5E22EB9007A00814D71 /* AppRouter.swift in Sources */,
 				1D88E5DB2EB8D88D00814D71 /* SubButtonStyle.swift in Sources */,
@@ -345,7 +363,9 @@
 				1D88E6022EBCDFFE00814D71 /* GameSceneProtocol.swift in Sources */,
 				1D88E5C52EB8BDF900814D71 /* LoadingView.swift in Sources */,
 				1D88E5F22EBA64A800814D71 /* SettingsView.swift in Sources */,
+				1D88E6102EBD2B8200814D71 /* LeaderboardsView.swift in Sources */,
 				1D88E5F82EBB9D8600814D71 /* LevelsView.swift in Sources */,
+				1D88E6182EBE03B000814D71 /* LeaderboardRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

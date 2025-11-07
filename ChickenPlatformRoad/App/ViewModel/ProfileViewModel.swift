@@ -17,6 +17,7 @@ class ProfileViewModel: ObservableObject {
     private let levelsKey = "highestUnlockedLevel"
     
     private let storage = UserDefaults.standard
+    private var originalName: String = "Guest"
     
     init() {
         load()
@@ -25,6 +26,7 @@ class ProfileViewModel: ObservableObject {
     func load() {
         if let saved = storage.string(forKey: nameKey), !saved.isEmpty {
             name = saved
+            originalName = saved
         } else {
             name = "Guest"
         }
@@ -34,6 +36,8 @@ class ProfileViewModel: ObservableObject {
         } else {
             selectedAvatar = .chick1
         }
+        
+        LeaderboardManager.shared.addOrUpdatePlayer(name: name, avatar: selectedAvatar.imageName)
     }
     
     var hasChanges: Bool {
@@ -42,11 +46,19 @@ class ProfileViewModel: ObservableObject {
     }
     
     func save() {
-        if hasChanges {
-            storage.set(1, forKey: levelsKey)
+        let cleaned = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        let finalName = cleaned.isEmpty ? "Guest" : cleaned
+        
+        storage.set(finalName, forKey: nameKey)
+        storage.set(selectedAvatar.imageName, forKey: avatarKey)
+
+        if finalName.lowercased() != originalName.lowercased() {
+            LeaderboardManager.shared.addOrUpdatePlayer(name: finalName, avatar: selectedAvatar.imageName)
+            originalName = finalName
+            storage.set(1, forKey: "highestUnlockedLevel")
+        } else {
+            LeaderboardManager.shared.updateAvatar(name: finalName, avatar: selectedAvatar.imageName)
         }
-        let trimmed = name.trimmingCharacters(in: .whitespacesAndNewlines)
-        storage.set(trimmed.isEmpty ? "Guest" : trimmed, forKey: nameKey)
-        storage.set(selectedAvatar.rawValue, forKey: avatarKey)
     }
+    
 }

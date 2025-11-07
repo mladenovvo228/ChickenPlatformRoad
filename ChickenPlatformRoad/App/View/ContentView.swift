@@ -44,7 +44,7 @@ struct ContentView: View {
                     .transition(.opacity)
                     .id(AppRoute.levels)
             case .leaderboard:
-                InfoView()
+                LeaderboardsView()
                     .transition(.opacity)
                     .id(AppRoute.leaderboard)
             case .shop:

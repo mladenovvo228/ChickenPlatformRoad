@@ -29,12 +29,16 @@ class GameViewModel: ObservableObject, GameSceneProtocol {
     let scene: GameScene
     private let shopVM = ShopViewModel.shared
     
+    private var currentName: String {
+        UserDefaults.standard.string(forKey: "nameKey") ?? "Guest"
+    }
+    
     init(level: Int = 1) {
         self.level = level
         self.scene = GameScene(level: level)
         self.scene.gameProtocol = self
         self.toScore = 0
-        self.toScore = 1 * level
+        self.toScore = 2 * level + 2
     }
     
     func didUpdateScore(_ score: Int) {
@@ -52,6 +56,7 @@ class GameViewModel: ObservableObject, GameSceneProtocol {
     
     func didCompleteLevel(_ level: Int) {
         completed = true
+        LeaderboardManager.shared.updateBestLevel(name: currentName, level: level)
         UserDefaults.standard.set(level + 1, forKey: "highestUnlockedLevel")
     }
     

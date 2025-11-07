@@ -19,7 +19,7 @@ struct GameView: View {
     
     var body: some View {
         ZStack {
-            SpriteView(scene: vm.scene, debugOptions: [.showsPhysics, .showsNodeCount])
+            SpriteView(scene: vm.scene)
                 .ignoresSafeArea()
             
             VStack {
@@ -38,7 +38,7 @@ struct GameView: View {
                     
                     Spacer()
                     
-                    CoinLabel(coins: 100)
+                    CoinLabel(coins: shopVM.totalCoins)
                         .scaleEffect(0.8)
                     
                     HStack {
@@ -49,7 +49,6 @@ struct GameView: View {
                     
                     
                 }
-                .offset(y: -20)
                 Spacer()
             }
             

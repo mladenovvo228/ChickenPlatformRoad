@@ -19,7 +19,6 @@ struct SettingsView: View {
             
             VStack {
                 HStack {
-                    
                     Button("") {
                         router.route = .menu
                     }
