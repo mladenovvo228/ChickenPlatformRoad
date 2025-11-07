@@ -28,7 +28,7 @@ struct LeaderboardsView: View {
                 
                 VStack(spacing: 12) {
                     Text("LEADERBOARD")
-                        .customFont(size: 30)
+                        .customFont(size: titleFontSize)
                         .padding(.top, 10)
                     
                     ScrollView {
