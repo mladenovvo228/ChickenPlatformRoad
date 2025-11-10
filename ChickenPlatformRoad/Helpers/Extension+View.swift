@@ -13,6 +13,4 @@ extension View {
             .foregroundStyle(color)
             .shadow(color: .black, radius: 1, y: 1)
     }
-    
-    
 }
